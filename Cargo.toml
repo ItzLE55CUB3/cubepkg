@@ -1,0 +1,16 @@
+[package]
+name = "cubepkg"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.57", features = ["derive"] }
+lalrpop-util = { version = "0.22.2", features = ["lexer", "unicode"] }
+
+[build-dependencies]
+lalrpop = "0.22.2"
+
+[[bin]]
+name = "cubepkg-vmassembler"
+path = "src/vmassembler/main.rs"
+
