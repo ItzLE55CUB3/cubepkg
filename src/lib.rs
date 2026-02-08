@@ -247,6 +247,9 @@ impl VM {
                     Self::change_register_by_id(&mut register, ram[register_ref.IP] << 4 >> 4, 
                         Self::get_register_by_id(register_ref.clone(), ram[register_ref.IP] << 4 >> 4) /
                             Self::get_u32(&ram, (register_ref.IP + 1) as usize) as usize);
+                    Self::change_register_by_id(&mut register, 3, 
+                        Self::get_register_by_id(register_ref.clone(), ram[register_ref.IP] << 4 >> 4) %
+                            Self::get_u32(&ram, (register_ref.IP + 1) as usize) as usize);
                     register.IP += 4;  
                 },
                 0x06 => {
@@ -270,6 +273,9 @@ impl VM {
                 0x09 => {
                     Self::change_register_by_id(&mut register, ram[register_ref.IP] << 4 >> 4, 
                         Self::get_register_by_id(register_ref.clone(), ram[register_ref.IP] << 4 >> 4) /
+                           Self::get_register_by_id(register_ref.clone(), ram[register_ref.IP + 1]));
+                    Self::change_register_by_id(&mut register, 3, 
+                        Self::get_register_by_id(register_ref.clone(), ram[register_ref.IP] << 4 >> 4) %
                            Self::get_register_by_id(register_ref.clone(), ram[register_ref.IP + 1]));
                     register.IP += 1;
                 },
