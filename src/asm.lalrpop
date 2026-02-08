@@ -24,8 +24,8 @@ Operation: Operation = {
 }
 
 OperationCmd: Operation = {
-    "imm" <reg:Regs> "," <int_const:IntConst> => Operation::new(1, reg, int_const)
-	"mov" <reg1:Regs> "," <reg2:Regs>  => Operation::new(2, reg1, reg2)
+    "imm" <reg:Regs> "," <int_const:IntConst> => Operation::new(1, reg, int_const),
+	"mov" <reg1:Regs> "," <reg2:Regs>  => Operation::new(2, reg1, reg2),
 }
 
 Regs: i32 = {
